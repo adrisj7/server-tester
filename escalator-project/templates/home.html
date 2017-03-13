@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title> Hi! </title>
+  </head>
+  
+  <body>
+    Hi! <br>
+    STATE: <p id="state_label"> loading.... </p> <br>
+  
+    <script>
+        
+        var timeout = 500;
+
+        var httpGet = function(url, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    callback(xmlHttp.response);
+                }
+            }
+            xmlHttp.open("GET", url, true);
+            xmlHttp.send(null);
+        }
+
+        // primitive socket: Loop back to start after timeout
+        var updateLabel = function(content) {
+            document.getElementById("state_label").innerHTML = content;
+            setTimeout(start, timeout);
+        }
+
+        var start = function() {
+            httpGet("/getData", updateLabel);
+        }
+
+        start();
+
+    </script>
+
+  </body>
+</html>
