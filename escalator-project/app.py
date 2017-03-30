@@ -33,6 +33,7 @@ def route_home():
 def route_update():
     data = request.form
     isMoving = data["state"]
+    return "1"
 
 @app.route("/getData")
 def route_get_data():
