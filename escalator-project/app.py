@@ -19,7 +19,7 @@ SERVER_LOCAL = False
 app = Flask(__name__)
 
 # MAIN ESCALATOR STATE
-isMoving = False
+isMoving = 0
 
 @app.route("/")
 def route_default():
