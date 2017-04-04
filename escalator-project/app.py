@@ -34,17 +34,21 @@ def route_home():
 
 @app.route("/update", methods=["POST", "GET"])
 def route_update():
-    data = request.form
     global isMoving, lastUpdate
+    
+    data = request.form
     isMoving = data["state"]
+    
+    time = datetime.datetime.today()
+    
     lastUpdate = "%s/%s/%s %s:%s:%s:%s" % (\
-            datetime.datetime.month,
-            datetime.datetime.day,
-            datetime.datetime.year,
-            datetime.datetime.hour,
-            datetime.datetime.minute,
-            datetime.datetime.second,
-            datetime.datetime.microsecond)
+            time.month,
+            time.day,
+            time.year,
+            time.hour,
+            time.minute,
+            time.second,
+            time.microsecond)
     return "1"
 
 @app.route("/getData")
