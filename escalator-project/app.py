@@ -35,6 +35,7 @@ def route_home():
 @app.route("/update", methods=["POST", "GET"])
 def route_update():
     data = request.form
+    global isMoving, lastUpdate
     isMoving = data["state"]
     lastUpdate = "%s/%s/%s %s:%s:%s:%s" % (\
             datetime.datetime.month,
