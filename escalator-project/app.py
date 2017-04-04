@@ -53,7 +53,7 @@ def route_update():
 
 @app.route("/getData")
 def route_get_data():
-    return str({"state" : isMoving, "lastUpdate" : lastUpdate})
+    return json.dumps({"state" : isMoving, "lastUpdate" : lastUpdate})
 
 
 if __name__ == "__main__":
