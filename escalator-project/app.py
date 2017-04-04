@@ -2,6 +2,7 @@
 
 import sys
 
+import datetime
 
 from flask import Flask, render_template, redirect, request
 #, g, render_template, redirect, request
@@ -21,6 +22,8 @@ app = Flask(__name__)
 # MAIN ESCALATOR STATE
 isMoving = 0
 
+lastUpdate = "never"
+
 @app.route("/")
 def route_default():
     return redirect("/home")
@@ -33,11 +36,19 @@ def route_home():
 def route_update():
     data = request.form
     isMoving = data["state"]
+    lastUpdate = "%s/%s/%s %s:%s:%s:%s" % (\
+            datetime.datetime.month,
+            datetime.datetime.day,
+            datetime.datetime.year,
+            datetime.datetime.hour,
+            datetime.datetime.minute,
+            datetime.datetime.second,
+            datetime.datetime.microsecond)
     return "1"
 
 @app.route("/getData")
 def route_get_data():
-    return str({"state" : isMoving})
+    return str({"state" : isMoving, "lastUpdate" : lastUpdate})
 
 
 if __name__ == "__main__":

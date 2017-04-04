@@ -5,6 +5,7 @@
   
   <body>
     Hi! <br>
+    Last update: <p id="last_update_label"> 14 billion BCE </p> <br>
     STATE: <p id="state_label"> loading.... </p> <br>
   
     <script>
@@ -24,7 +25,9 @@
 
         // primitive socket: Loop back to start after timeout
         var updateLabel = function(content) {
-            document.getElementById("state_label").innerHTML = content;
+            jsonData = JSON.parse(content)
+            document.getElementById("state_label").innerHTML = jsonData["state"];
+            document.getElementById("last_update_label").innerHTML = jsonData["lastUpdate"];
             setTimeout(start, timeout);
         }
 
