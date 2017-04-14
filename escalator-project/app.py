@@ -5,6 +5,7 @@ import datetime
 import json
 
 from flask import Flask, render_template, redirect, request
+<<<<<<< HEAD
 
 try:
     from flask_cors import CORS  # The typical way to import flask-cors
@@ -18,6 +19,8 @@ except ImportError:
 
 
 #from flask_cors import CORS
+=======
+>>>>>>> parent of 3d7e795... Add cors, allow all domains to access site (INSECURE. FIX LATER)
 #, g, render_template, redirect, request
 
 # 5000 seems a bit... basic. Feel free to change later to something more
@@ -31,8 +34,6 @@ SERVER_LOCAL = True
 
 # Init app
 app = Flask(__name__)
-
-CORS(app)
 
 # MAIN ESCALATOR STATE
 isMoving = 0
