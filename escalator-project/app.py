@@ -6,6 +6,7 @@ import json
 
 from flask import Flask, render_template, redirect, request
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 try:
     from flask_cors import CORS  # The typical way to import flask-cors
@@ -19,6 +20,8 @@ except ImportError:
 
 
 #from flask_cors import CORS
+=======
+>>>>>>> parent of 3d7e795... Add cors, allow all domains to access site (INSECURE. FIX LATER)
 =======
 >>>>>>> parent of 3d7e795... Add cors, allow all domains to access site (INSECURE. FIX LATER)
 #, g, render_template, redirect, request
