@@ -5,25 +5,8 @@ import datetime
 import json
 
 from flask import Flask, render_template, redirect, request
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-try:
-    from flask_cors import CORS  # The typical way to import flask-cors
-except ImportError:
-    # Path hack allows examples to be run without installation.
-    import os
-    parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    os.sys.path.insert(0, parentdir)
-
-    from flask_cors import CORS
-
-
-#from flask_cors import CORS
-=======
->>>>>>> parent of 3d7e795... Add cors, allow all domains to access site (INSECURE. FIX LATER)
-=======
->>>>>>> parent of 3d7e795... Add cors, allow all domains to access site (INSECURE. FIX LATER)
+from flask_cors import CORS
 #, g, render_template, redirect, request
 
 # 5000 seems a bit... basic. Feel free to change later to something more
