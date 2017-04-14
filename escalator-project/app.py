@@ -21,6 +21,8 @@ SERVER_LOCAL = True
 # Init app
 app = Flask(__name__)
 
+CORS(app)
+
 # MAIN ESCALATOR STATE
 isMoving = 0
 
