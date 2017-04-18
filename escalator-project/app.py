@@ -23,8 +23,9 @@ app = Flask(__name__)
 
 CORS(app)
 
-# MAIN ESCALATOR STATE
-isMoving = 0
+# MAIN ESCALATOR STATES
+isMoving1 = 0
+isMoving2 = 0
 
 lastUpdate = "never"
 
@@ -38,10 +39,11 @@ def route_home():
 
 @app.route("/update", methods=["POST", "GET"])
 def route_update():
-    global isMoving, lastUpdate
+    global isMoving1, isMoving2, lastUpdate
     
     data = request.form
-    isMoving = data["state"]
+    isMoving1 = data["state1"]
+    isMoving2 = data["state2"]
     
     time = datetime.datetime.today()
     
@@ -57,7 +59,7 @@ def route_update():
 
 @app.route("/getData")
 def route_get_data():
-    return json.dumps({"state" : isMoving, "lastUpdate" : lastUpdate})
+    return json.dumps({"state1" : isMoving1, "state2" : isMoving2, "lastUpdate" : lastUpdate})
 
 
 if __name__ == "__main__":
